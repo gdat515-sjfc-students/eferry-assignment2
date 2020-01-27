@@ -1,0 +1,112 @@
+---
+title: "assignment2"
+author: "Emily Ferry"
+date: "1/26/2020"
+output: 
+  md_document:
+    variant: markdown_github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(gapminder)
+library(ggthemes)
+library(dplyr)
+library(tidyr)
+library(ISLR)
+```
+
+##Introduction 
+
+I started as I normally do, trying to find a dataset that interests me in my field. I find it hard to find marketing data that makes sense as most quality data needs to be paid for. The sets I do find usually have some sort of questionable background, leaving me unsure of what to be asking about them. For instance, I saw a set (several really) on kaggle that was about banks marketing- however this was done in protugue and some of the variables were hard to wrap my head around. I also am not able to access work data quite yet. I turned to google and after much time searching (as usual) for soemthing of interest, I remembered the OJ dataset from ISRL. 
+
+We used this dataset ever so breifly in class and I rember being interested as it pretained to sales between two similar products, but different brands, that of Minute Maid and Citrus Hill. 
+
+while this is a little bit of a cop-out ( as the data is pre loaded in R ) it is something that interests me, which I think has been somewhat of a struggle during this program (finding data that interests me). 
+
+I think that the questions I am looking to awsner or derive from my data might be surrouding brand versus sales/promotions. In marketing, more specifically buyer behavior, you learn about familiar brands, that is when faced with mulitple choices of the same product you go with the one that is familar. This could be because your parents or family purchased this brand, or becuase you were more exposed to that particular brand and therefore recall it or because one brand is more established then the other. 
+
+While price more often then not affects our choices, often when faced with so many choices throughtout the shopping experiance the familiar trumps the cheap. Plus, depeneding on the demographics of the shopper, discount shopping may not be the goal. 
+
+Overall, I am curious to see if one brand in particular has higher sales despite presense of better discounts/ promotions in the other. Histrocially, Minute Maid is an older brand, as Citrus Hill was introduced to the market by P&G after domination from Minute Maid and Tropicana products.
+
+
+#The Data 
+
+
+```{r looking at the data- EDA}
+?OJ
+#Looking at OJ the data contatins 1070 purchases where the customer either purchased Citrus Hill or Minute Maid Orange Juice. A number of characteristics of the customer and product are recorded.
+
+str(OJ) #1070 Obs with 18 Variables 
+
+
+```
+
+## Just going to go into some Plots 
+
+realizing after much plotting this might not have been the best to use as Im trying to look at what is esentailly two sets of data 
+
+```{r}
+
+ggplot(data= OJ, mapping = aes(x = WeekofPurchase, y = PriceMM)) +
+  geom_point()                              
+
+
+
+```
+
+I acctually ended up abandoning OJ after many failed attempts at plots other then box plots that made sense visually. I think If I wasnt so frustrated I'd probably be able to figure out the acctual price or something to help aid in the graphing, but Im going to pick a different dataset that has some interest to me. 
+
+#Switching to US Arrests
+
+https://www.kaggle.com/neuromusic/avocado-prices
+```{r}
+getwd()
+avo<-read.csv("/Users/emilyferry/Desktop/data_vis/assigment2/eferry-assignment2/avocado.csv")
+
+str(avo) #18249 obs of 14 
+
+```
+
+#Some Plots 
+
+
+```{r}
+plot(avo)
+ggplot(data = avo, mapping = aes(x = Total.Volume , y = type ,color = region)) + 
+  geom_point()
+
+```
+
+#Abandoning this too 
+
+# Looking at soemthing else 
+
+Does an increased number of armed forces affect the GNP? how is GNP affected over time by populated and those unemployed vs. employed. 
+
+GNP is the GNP (Gross National Product) is a measure of national income.  It is the market value of all goods and services created in a given year by labor and property that belong to the citizens of a given country. It measures how much the goods and services that are produced cost.  
+
+```{r}
+longley
+?longley #A macroeconomic data set which provides a well-known example for a highly collinear regression.A data frame with 7 economical variables, observed yearly from 1947 to 1962 (n=16).
+
+```
+
+
+#plots
+
+```{r}
+ggplot(data=longley, mapping = aes(x = Year, y = Armed.Forces)) +
+  geom_point()  #must be a gap in the data ?
+
+ggplot(data= longley, mapping = aes(x = Year, y = GNP.deflator)) +
+  geom_point() 
+
+ggplot(data= longley, mapping = aes(x = Year, y = Employed)) +
+  geom_point() 
+
+```
+
