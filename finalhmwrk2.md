@@ -28,7 +28,8 @@ these answers do to the high collinear regression, however it is still
 interesting to explore how these factors might affect a countries
 overall economic standings.
 
-\#The Data
+\#The
+    Data
 
 ``` r
 longley
@@ -68,28 +69,28 @@ ggplot(data = longley,aes(x = Population, y = Unemployed))+
   geom_point()
 ```
 
-![](finalhmwrk2_files/figure-markdown_github/unnamed-chunk-2-1.png)
+![](finalhmwrk2_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
 ggplot(longley, aes(x=Year, y=Employed)) +
   geom_point() + stat_smooth(method="lm") #adding a loess line with a linear regression model 
 ```
 
-![](finalhmwrk2_files/figure-markdown_github/unnamed-chunk-2-2.png)
+![](finalhmwrk2_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
 
 ``` r
 ggplot(longley, aes(x=Year, y=Employed, color = GNP)) +
   geom_point()  # looking at # of those employeed over time ( year ) showing the GNP increase visually in color 
 ```
 
-![](finalhmwrk2_files/figure-markdown_github/unnamed-chunk-2-3.png)
+![](finalhmwrk2_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->
 
 ``` r
 ggplot(longley, aes(x=Year, y=Armed.Forces, color = GNP)) +
   geom_point()  # same as the last but with armed forces # it looks like maybe there is a gap in the data or something else is occuring
 ```
 
-![](finalhmwrk2_files/figure-markdown_github/unnamed-chunk-2-4.png)
+![](finalhmwrk2_files/figure-gfm/unnamed-chunk-2-4.png)<!-- -->
 
 ``` r
 ggplot(data = longley, aes(x= GNP, y = Employed, color = Armed.Forces, size = Population)) +
@@ -97,7 +98,7 @@ ggplot(data = longley, aes(x= GNP, y = Employed, color = Armed.Forces, size = Po
   stat_smooth( method = lm) # this is sort of interesting, a liner regression model with a loess line showing the employement number by GNP, we also see the size of armed forces prevenalt with the color variation, dark being less light being more, but it gets a little intese with population also being reflected in the size of the data points, the bigger the point the larger the population 
 ```
 
-![](finalhmwrk2_files/figure-markdown_github/unnamed-chunk-2-5.png)
+![](finalhmwrk2_files/figure-gfm/unnamed-chunk-2-5.png)<!-- -->
 
 ``` r
 ggplot(data = longley, aes(x= Year, y = Employed, size = Armed.Forces)) +
@@ -105,14 +106,14 @@ ggplot(data = longley, aes(x= Year, y = Employed, size = Armed.Forces)) +
   stat_smooth( method = lm) # I wonder if those employed are also counted as those in Armed.Forces 
 ```
 
-![](finalhmwrk2_files/figure-markdown_github/unnamed-chunk-2-6.png)
+![](finalhmwrk2_files/figure-gfm/unnamed-chunk-2-6.png)<!-- -->
 
 ``` r
 ggplot(data = longley, aes(x= Year, y = GNP.deflator, size = Armed.Forces)) +
   geom_point()  # I wonder if those employed are also counted as those in Armed.Forces, in 1947-53 we have the Cold War, in the 60's there was the cuban missle crisis and the vietnam war 
 ```
 
-![](finalhmwrk2_files/figure-markdown_github/unnamed-chunk-2-7.png)
+![](finalhmwrk2_files/figure-gfm/unnamed-chunk-2-7.png)<!-- -->
 
 ``` r
 ggplot(data = longley, mapping=  aes(x= GNP.deflator, y = Employed)) +
@@ -121,10 +122,9 @@ ggplot(data = longley, mapping=  aes(x= GNP.deflator, y = Employed)) +
   facet_wrap(~Population) # that was useless 
 ```
 
-![](finalhmwrk2_files/figure-markdown_github/unnamed-chunk-2-8.png)
+![](finalhmwrk2_files/figure-gfm/unnamed-chunk-2-8.png)<!-- -->
 
-In Conclusion :
-===============
+# In Conclusion :
 
 ``` r
 p2<-ggplot(data = longley, aes(x= Year, y = GNP.deflator, color = Armed.Forces, size = Population)) +
@@ -138,7 +138,7 @@ p2<-ggplot(data = longley, aes(x= Year, y = GNP.deflator, color = Armed.Forces, 
 p2+scale_color_gradient(low="#000099", high="#6699FF")
 ```
 
-![](finalhmwrk2_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](finalhmwrk2_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ``` r
 ?longley

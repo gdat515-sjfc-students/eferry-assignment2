@@ -4,7 +4,7 @@ author: "Emily Ferry"
 date: "1/27/2020"
 output: 
   md_document:
-    variant: markdown_github
+    variant: gfm
 ---
 
 ```{r setup, include=FALSE}
