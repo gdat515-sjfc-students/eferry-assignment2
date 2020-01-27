@@ -73,12 +73,6 @@ ggplot(data = longley, mapping=  aes(x= GNP.deflator, y = Employed)) +
 
 ```{r}
 
-# Install
-install.packages("wesanderson")
-# Load
-library(wesanderson)
-
-
 p2<-ggplot(data = longley, aes(x= Year, y = GNP.deflator, color = Armed.Forces, size = Population)) +
   geom_point() + 
   stat_smooth( method = lm)+
